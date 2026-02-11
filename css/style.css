@@ -1330,22 +1330,30 @@ ul {
 }
 
 /* ===== Responsive ===== */
+.contact-person {
+  margin-top: 32px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-person img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media (max-width: 992px) {
-  .nav-links {
-    display: none;
-  }
-  
-  .menu-toggle {
-    display: block;
-  }
-  
   .contact-grid {
     grid-template-columns: 1fr;
   }
   
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
+  .contact-person {
+    margin-top: 24px;
   }
+}
+
+@media (max-width: 768px) {
   
   .workflow-steps {
     flex-direction: column;
