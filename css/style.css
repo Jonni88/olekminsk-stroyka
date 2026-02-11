@@ -1149,13 +1149,22 @@ ul {
   font-weight: 600;
 }
 
-.calc-form {
-  margin-bottom: 16px;
+.calc-whatsapp {
+  background: var(--color-bg-warm);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 24px;
 }
 
-.calc-form h4 {
-  margin-bottom: 20px;
+.calc-whatsapp h4 {
+  margin-bottom: 12px;
   font-size: 18px;
+}
+
+.calc-whatsapp-note {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .calc-restart {
