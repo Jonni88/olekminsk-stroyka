@@ -273,7 +273,7 @@ ul {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url('../images/hero-bg.jpg') center center / cover no-repeat;
+  background: url('../images/hero-bg-new.jpg') center center / cover no-repeat;
   padding: 100px 0 60px;
   overflow: hidden;
 }
