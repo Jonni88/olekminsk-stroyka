@@ -587,6 +587,153 @@
         </div>
     </section>
 
+    <!-- Calculator Section -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Калькулятор</span>
+                <h2>Рассчитайте стоимость ремонта за 2 минуты</h2>
+            </div>
+            
+            <div class="calculator-wrapper">
+                <!-- Step 1: Type -->
+                <div class="calc-step active" data-step="1">
+                    <h3>1. Тип объекта</h3>
+                    <div class="calc-options">
+                        <button class="calc-option" data-value="flat" data-price="1">
+                            <i class="ph-fill ph-buildings"></i>
+                            <span>Квартира</span>
+                        </button>
+                        <button class="calc-option" data-value="house" data-price="1.2">
+                            <i class="ph-fill ph-house-line"></i>
+                            <span>Дом</span>
+                        </button>
+                        <button class="calc-option" data-value="banya" data-price="1.2">
+                            <i class="ph-fill ph-thermometer-hot"></i>
+                            <span>Баня</span>
+                        </button>
+                        <button class="calc-option" data-value="other" data-price="1">
+                            <i class="ph-fill ph-warehouse"></i>
+                            <span>Другое</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Area -->
+                <div class="calc-step" data-step="2">
+                    <h3>2. Площадь помещения</h3>
+                    <div class="calc-range">
+                        <input type="range" id="areaRange" min="10" max="300" value="50" step="5">
+                        <div class="calc-range-value">
+                            <span id="areaValue">50</span> м²
+                        </div>
+                    </div>
+                    <div class="calc-nav">
+                        <button class="btn btn-secondary calc-prev">Назад</button>
+                        <button class="btn btn-primary calc-next">Далее</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Repair Type -->
+                <div class="calc-step" data-step="3">
+                    <h3>3. Тип ремонта</h3>
+                    <div class="calc-options calc-options--vertical">
+                        <button class="calc-option calc-option--large" data-value="cosmetic" data-price="3000">
+                            <div class="calc-option-title">Косметический</div>
+                            <div class="calc-option-desc">Покраска, обои, замена плинтусов</div>
+                            <div class="calc-option-price">от 3 000 ₽/м²</div>
+                        </button>
+                        <button class="calc-option calc-option--large" data-value="capital" data-price="5000">
+                            <div class="calc-option-title">Капитальный</div>
+                            <div class="calc-option-desc">Штукатурка, стяжка, электрика</div>
+                            <div class="calc-option-price">от 5 000 ₽/м²</div>
+                        </button>
+                        <button class="calc-option calc-option--large" data-value="full" data-price="8000">
+                            <div class="calc-option-title">Под ключ</div>
+                            <div class="calc-option-desc">Всё включено, заезжай и живи</div>
+                            <div class="calc-option-price">от 8 000 ₽/м²</div>
+                        </button>
+                    </div>
+                    <div class="calc-nav">
+                        <button class="btn btn-secondary calc-prev">Назад</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Timing -->
+                <div class="calc-step" data-step="4">
+                    <h3>4. Срочность</h3>
+                    <div class="calc-options calc-options--vertical">
+                        <button class="calc-option calc-option--large" data-value="normal" data-price="1">
+                            <div class="calc-option-title">Стандартные сроки</div>
+                            <div class="calc-option-desc">Оптимальное соотношение цена/скорость</div>
+                            <div class="calc-option-price">Без наценки</div>
+                        </button>
+                        <button class="calc-option calc-option--large" data-value="urgent" data-price="1.3">
+                            <div class="calc-option-title">Срочно</div>
+                            <div class="calc-option-desc">Приоритетная работа, ускоренные сроки</div>
+                            <div class="calc-option-price">+30% к стоимости</div>
+                        </button>
+                    </div>
+                    <div class="calc-nav">
+                        <button class="btn btn-secondary calc-prev">Назад</button>
+                    </div>
+                </div>
+                
+                <!-- Step 5: Result -->
+                <div class="calc-step" data-step="5">
+                    <div class="calc-result">
+                        <h3>Предварительная стоимость</h3>
+                        <div class="calc-result-price">
+                            <span id="resultPrice">0</span> ₽
+                        </div>
+                        <p class="calc-result-note">* Точная стоимость после осмотра объекта</p>
+                        
+                        <div class="calc-result-details">
+                            <div class="calc-detail">
+                                <span>Объект:</span>
+                                <span id="resultType">-</span>
+                            </div>
+                            <div class="calc-detail">
+                                <span>Площадь:</span>
+                                <span id="resultArea">-</span>
+                            </div>
+                            <div class="calc-detail">
+                                <span>Тип ремонта:</span>
+                                <span id="resultRepair">-</span>
+                            </div>
+                            <div class="calc-detail">
+                                <span>Срочность:</span>
+                                <span id="resultTiming">-</span>
+                            </div>
+                        </div>
+                        
+                        <form class="calc-form" id="calcForm">
+                            <h4>Оставьте заявку на бесплатный расчёт</h4>
+                            <div class="form-group">
+                                <input type="text" name="calc-name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="calc-phone" placeholder="Телефон" required>
+                            </div>
+                            <input type="hidden" name="calc-data" id="calcData">
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i class="ph-fill ph-paper-plane-right"></i>
+                                Получить точный расчёт
+                            </button>
+                        </form>
+                        
+                        <button class="btn btn-secondary calc-restart">Начать заново</button>
+                    </div>
+                </div>
+                
+                <!-- Progress -->
+                <div class="calc-progress">
+                    <div class="calc-progress-bar" id="calcProgress"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -769,5 +916,174 @@
     </div>
 
     <script src="js/main.js"></script>
+    
+    <!-- Calculator Script -->
+    <script>
+        // Calculator State
+        const calcState = {
+            step: 1,
+            type: null,
+            typePrice: 1,
+            area: 50,
+            repairType: null,
+            repairPrice: 0,
+            timing: null,
+            timingPrice: 1
+        };
+        
+        // Type labels
+        const typeLabels = {
+            flat: 'Квартира',
+            house: 'Дом',
+            banya: 'Баня',
+            other: 'Другое'
+        };
+        
+        // Repair labels
+        const repairLabels = {
+            cosmetic: 'Косметический',
+            capital: 'Капитальный',
+            full: 'Под ключ'
+        };
+        
+        // Timing labels
+        const timingLabels = {
+            normal: 'Стандарт',
+            urgent: 'Срочно'
+        };
+        
+        // DOM Elements
+        const steps = document.querySelectorAll('.calc-step');
+        const progressBar = document.getElementById('calcProgress');
+        const areaRange = document.getElementById('areaRange');
+        const areaValue = document.getElementById('areaValue');
+        
+        // Update progress bar
+        function updateProgress() {
+            const progress = (calcState.step / 5) * 100;
+            progressBar.style.width = progress + '%';
+        }
+        
+        // Show step
+        function showStep(stepNum) {
+            steps.forEach(step => step.classList.remove('active'));
+            document.querySelector(`.calc-step[data-step="${stepNum}"]`).classList.add('active');
+            calcState.step = stepNum;
+            updateProgress();
+        }
+        
+        // Type selection
+        document.querySelectorAll('.calc-step[data-step="1"] .calc-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.calc-step[data-step="1"] .calc-option').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                calcState.type = btn.dataset.value;
+                calcState.typePrice = parseFloat(btn.dataset.price);
+                setTimeout(() => showStep(2), 200);
+            });
+        });
+        
+        // Area slider
+        areaRange.addEventListener('input', () => {
+            calcState.area = parseInt(areaRange.value);
+            areaValue.textContent = calcState.area;
+        });
+        
+        // Step 2 navigation
+        document.querySelector('.calc-step[data-step="2"] .calc-next').addEventListener('click', () => {
+            showStep(3);
+        });
+        
+        document.querySelector('.calc-step[data-step="2"] .calc-prev').addEventListener('click', () => {
+            showStep(1);
+        });
+        
+        // Repair type selection
+        document.querySelectorAll('.calc-step[data-step="3"] .calc-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.calc-step[data-step="3"] .calc-option').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                calcState.repairType = btn.dataset.value;
+                calcState.repairPrice = parseInt(btn.dataset.price);
+                setTimeout(() => showStep(4), 200);
+            });
+        });
+        
+        document.querySelector('.calc-step[data-step="3"] .calc-prev').addEventListener('click', () => {
+            showStep(2);
+        });
+        
+        // Timing selection
+        document.querySelectorAll('.calc-step[data-step="4"] .calc-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.calc-step[data-step="4"] .calc-option').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                calcState.timing = btn.dataset.value;
+                calcState.timingPrice = parseFloat(btn.dataset.price);
+                calculateResult();
+                setTimeout(() => showStep(5), 200);
+            });
+        });
+        
+        document.querySelector('.calc-step[data-step="4"] .calc-prev').addEventListener('click', () => {
+            showStep(3);
+        });
+        
+        // Calculate and show result
+        function calculateResult() {
+            const basePrice = calcState.repairPrice * calcState.area * calcState.typePrice * calcState.timingPrice;
+            const minPrice = Math.round(basePrice * 0.9);
+            const maxPrice = Math.round(basePrice * 1.1);
+            
+            document.getElementById('resultPrice').textContent = minPrice.toLocaleString('ru-RU') + ' - ' + maxPrice.toLocaleString('ru-RU');
+            document.getElementById('resultType').textContent = typeLabels[calcState.type];
+            document.getElementById('resultArea').textContent = calcState.area + ' м²';
+            document.getElementById('resultRepair').textContent = repairLabels[calcState.repairType];
+            document.getElementById('resultTiming').textContent = timingLabels[calcState.timing];
+            
+            // Prepare data for form
+            const calcData = {
+                type: typeLabels[calcState.type],
+                area: calcState.area,
+                repair: repairLabels[calcState.repairType],
+                timing: timingLabels[calcState.timing],
+                priceRange: minPrice.toLocaleString('ru-RU') + ' - ' + maxPrice.toLocaleString('ru-RU') + ' ₽'
+            };
+            document.getElementById('calcData').value = JSON.stringify(calcData);
+        }
+        
+        // Restart calculator
+        document.querySelector('.calc-restart').addEventListener('click', () => {
+            calcState.step = 1;
+            calcState.type = null;
+            calcState.typePrice = 1;
+            calcState.area = 50;
+            calcState.repairType = null;
+            calcState.repairPrice = 0;
+            calcState.timing = null;
+            calcState.timingPrice = 1;
+            
+            areaRange.value = 50;
+            areaValue.textContent = '50';
+            
+            document.querySelectorAll('.calc-option').forEach(b => b.classList.remove('selected'));
+            
+            showStep(1);
+        });
+        
+        // Calculator form submit
+        document.getElementById('calcForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Here you can send data to server or Telegram
+            alert('Заявка отправлена! Мы перезвоним вам в течение 30 минут.');
+            
+            // Reset
+            e.target.reset();
+            document.querySelector('.calc-restart').click();
+        });
+    </script>
 </body>
 </html>
