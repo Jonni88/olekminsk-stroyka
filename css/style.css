@@ -273,7 +273,7 @@ ul {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url('../images/contact-person.jpg') right center / contain no-repeat;
+  background: url('../images/hero-bg.jpg') right center / contain no-repeat;
   background-color: var(--color-bg);
   padding: 140px 0 100px;
   overflow: hidden;
