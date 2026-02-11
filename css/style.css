@@ -589,6 +589,105 @@ ul {
   50% { opacity: 0.5; }
 }
 
+/* ===== Reviews Section ===== */
+.reviews {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-warm) 100%);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.review-card {
+  background: white;
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+  position: relative;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent-light);
+}
+
+.review-card::before {
+  content: '"';
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-family: Georgia, serif;
+  font-size: 80px;
+  color: var(--color-bg-warm);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.review-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.review-stars i {
+  font-size: 18px;
+  color: #FFB800;
+}
+
+.review-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.review-avatar {
+  width: 48px;
+  height: 48px;
+  background: var(--color-bg-warm);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-avatar i {
+  font-size: 24px;
+  color: var(--color-primary);
+}
+
+.review-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.review-project {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
 /* ===== Portfolio Section ===== */
 .portfolio {
   padding: 100px 0;
@@ -1037,6 +1136,14 @@ ul {
   
   .benefits-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .review-card {
+    padding: 24px;
   }
   
   .portfolio-grid {
