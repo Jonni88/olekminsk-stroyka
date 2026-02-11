@@ -1113,6 +1113,35 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .header .logo {
+    display: none;
+  }
+  
+  .nav {
+    justify-content: flex-end;
+  }
+  
+  .nav-contacts {
+    flex: 1;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  
+  .phone-link {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  
+  .phone-link span {
+    white-space: nowrap;
+  }
+  
+  .btn-small {
+    padding: 10px 16px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  
   .hero {
     padding: 120px 0 80px;
   }
