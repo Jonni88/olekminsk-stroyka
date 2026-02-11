@@ -273,7 +273,8 @@ ul {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url('../images/contact-person.jpg') center center / cover no-repeat;
+  background: url('../images/contact-person.jpg') right center / contain no-repeat;
+  background-color: var(--color-bg);
   padding: 140px 0 100px;
   overflow: hidden;
 }
@@ -282,13 +283,13 @@ ul {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(253, 248, 243, 0.95) 0%, rgba(253, 248, 243, 0.85) 50%, rgba(253, 248, 243, 0.4) 100%);
+  background: linear-gradient(90deg, rgba(253, 248, 243, 1) 0%, rgba(253, 248, 243, 0.95) 30%, rgba(253, 248, 243, 0.7) 60%, transparent 100%);
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, var(--color-bg) 0%, transparent 60%);
+  background: linear-gradient(90deg, var(--color-bg) 0%, transparent 50%);
 }
 
 .hero-content {
