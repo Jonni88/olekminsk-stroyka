@@ -577,6 +577,176 @@
         </div>
     </section>
 
+    <!-- Calculator Section -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Калькулятор</span>
+                <h2>Рассчитайте стоимость ремонта за 2 минуты</h2>
+            </div>
+            
+            <div class="calculator-wrapper">
+                <!-- Step 1: Type -->
+                <div class="calc-step active" data-step="1">
+                    <h3>1. Тип объекта</h3>
+                    <div class="calc-options">
+                        <button class="calc-option" data-value="flat" data-price="1">
+                            <i class="ph-fill ph-buildings"></i>
+                            <span>Квартира</span>
+                        </button>
+                        <button class="calc-option" data-value="house" data-price="1.2">
+                            <i class="ph-fill ph-house-line"></i>
+                            <span>Дом</span>
+                        </button>
+                        <button class="calc-option" data-value="banya" data-price="1.2">
+                            <i class="ph-fill ph-thermometer-hot"></i>
+                            <span>Баня</span>
+                        </button>
+                        <button class="calc-option" data-value="other" data-price="1">
+                            <i class="ph-fill ph-warehouse"></i>
+                            <span>Другое</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Area -->
+                <div class="calc-step" data-step="2">
+                    <h3>2. Площадь помещения</h3>
+                    <div class="calc-range">
+                        <input type="range" id="areaRange" min="10" max="300" value="50" step="5">
+                        <div class="calc-range-value">
+                            <span id="areaValue">50</span> м²
+                        </div>
+                    </div>
+                    <div class="calc-nav">
+                        <button class="btn btn-secondary calc-prev">Назад</button>
+                        <button class="btn btn-primary calc-next">Далее</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Repair Type (for flat/house/other) -->
+                <div class="calc-step" data-step="3">
+                    <h3>3. Тип ремонта</h3>
+                    <div class="calc-options calc-options--vertical">
+                        <button class="calc-option calc-option--large" data-value="cosmetic" data-price="3000">
+                            <div class="calc-option-title">Косметический</div>
+                            <div class="calc-option-desc">Покраска, обои, замена плинтусов</div>
+                            <div class="calc-option-price">от 3 000 ₽/м²</div>
+                        </button>
+                        <button class="calc-option calc-option--large" data-value="capital" data-price="5000">
+                            <div class="calc-option-title">Капитальный</div>
+                            <div class="calc-option-desc">Штукатурка, стяжка, электрика</div>
+                            <div class="calc-option-price">от 5 000 ₽/м²</div>
+                        </button>
+                        <button class="calc-option calc-option--large" data-value="full" data-price="8000">
+                            <div class="calc-option-title">Под ключ</div>
+                            <div class="calc-option-desc">Всё включено, заезжай и живи</div>
+                            <div class="calc-option-price">от 8 000 ₽/м²</div>
+                        </button>
+                    </div>
+                    <div class="calc-nav">
+                        <button class="btn btn-secondary calc-prev">Назад</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3b: Banya Type (for banya only) -->
+                <div class="calc-step" data-step="3b">
+                    <h3>3. Тип бани</h3>
+                    <div class="calc-options calc-options--vertical">
+                        <button class="calc-option calc-option--large" data-value="karkas" data-price="15000">
+                            <div class="calc-option-title">Каркасная баня</div>
+                            <div class="calc-option-desc">Быстрое строительство, доступная цена</div>
+                            <div class="calc-option-price">от 15 000 ₽/м²</div>
+                        </button>
+                        <button class="calc-option calc-option--large" data-value="brus" data-price="18000">
+                            <div class="calc-option-title">Брусовая баня</div>
+                            <div class="calc-option-desc">Натуральный брус, тепло и уют</div>
+                            <div class="calc-option-price">от 18 000 ₽/м²</div>
+                        </button>
+                        <button class="calc-option calc-option--large" data-value="brevenchataya" data-price="22000">
+                            <div class="calc-option-title">Бревенчатая баня</div>
+                            <div class="calc-option-desc">Классический сруб, долговечность</div>
+                            <div class="calc-option-price">от 22 000 ₽/м²</div>
+                        </button>
+                        <button class="calc-option calc-option--large" data-value="banya-full" data-price="25000">
+                            <div class="calc-option-title">Баня под ключ</div>
+                            <div class="calc-option-desc">Всё включено: печь, полки, отделка</div>
+                            <div class="calc-option-price">от 25 000 ₽/м²</div>
+                        </button>
+                    </div>
+                    <div class="calc-nav">
+                        <button class="btn btn-secondary calc-prev">Назад</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Timing -->
+                <div class="calc-step" data-step="4">
+                    <h3>4. Срочность</h3>
+                    <div class="calc-options calc-options--vertical">
+                        <button class="calc-option calc-option--large" data-value="normal" data-price="1">
+                            <div class="calc-option-title">Стандартные сроки</div>
+                            <div class="calc-option-desc">Оптимальное соотношение цена/скорость</div>
+                            <div class="calc-option-price">Без наценки</div>
+                        </button>
+                        <button class="calc-option calc-option--large" data-value="urgent" data-price="1.3">
+                            <div class="calc-option-title">Срочно</div>
+                            <div class="calc-option-desc">Приоритетная работа, ускоренные сроки</div>
+                            <div class="calc-option-price">+30% к стоимости</div>
+                        </button>
+                    </div>
+                    <div class="calc-nav">
+                        <button class="btn btn-secondary calc-prev">Назад</button>
+                    </div>
+                </div>
+                
+                <!-- Step 5: Result -->
+                <div class="calc-step" data-step="5">
+                    <div class="calc-result">
+                        <h3>Ваш расчёт готов!</h3>
+                        
+                        <p class="calc-result-note">Точная стоимость после осмотра объекта</p>
+                        
+                        <div class="calc-result-details">
+                            <div class="calc-detail">
+                                <span>Объект:</span>
+                                <span id="resultType">-</span>
+                            </div>
+                            <div class="calc-detail">
+                                <span>Площадь:</span>
+                                <span id="resultArea">-</span>
+                            </div>
+                            <div class="calc-detail">
+                                <span>Тип:</span>
+                                <span id="resultRepair">-</span>
+                            </div>
+                            <div class="calc-detail">
+                                <span>Срочность:</span>
+                                <span id="resultTiming">-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-whatsapp">
+                            <h4>Получить точный расчёт в WhatsApp</h4>
+                            <p class="calc-whatsapp-note">Нажмите кнопку ниже, чтобы отправить данные нам</p>
+                            
+                            <button id="whatsappCalcBtn" class="btn btn-primary btn-full">
+                                <i class="ph-fill ph-whatsapp-logo"></i>
+                                Отправить расчёт в WhatsApp
+                            </button>
+                        </div>
+                        
+                        <button class="btn btn-secondary calc-restart">Начать заново</button>
+                    </div>
+                </div>
+                
+                <!-- Progress -->
+                <div class="calc-progress">
+                    <div class="calc-progress-bar" id="calcProgress"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
