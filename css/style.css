@@ -273,17 +273,13 @@ ul {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url('../images/hero-bg.jpg') center center / contain no-repeat;
-  background-color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-bg-warm) 0%, var(--color-bg) 100%);
   padding: 100px 0 60px;
   overflow: hidden;
 }
 
 .hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(253, 248, 243, 0.75) 0%, rgba(253, 248, 243, 0.5) 35%, rgba(253, 248, 243, 0.2) 100%);
+  display: none;
 }
 
 .hero-overlay {
