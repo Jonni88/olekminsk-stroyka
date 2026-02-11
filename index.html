@@ -712,11 +712,9 @@
                 <!-- Step 5: Result -->
                 <div class="calc-step" data-step="5">
                     <div class="calc-result">
-                        <h3>Предварительная стоимость</h3>
-                        <div class="calc-result-price">
-                            <span id="resultPrice">0</span> ₽
-                        </div>
-                        <p class="calc-result-note">* Точная стоимость после осмотра объекта</p>
+                        <h3>Ваш расчёт готов!</h3>
+                        
+                        <p class="calc-result-note">Точная стоимость после осмотра объекта</p>
                         
                         <div class="calc-result-details">
                             <div class="calc-detail">
@@ -728,7 +726,7 @@
                                 <span id="resultArea">-</span>
                             </div>
                             <div class="calc-detail">
-                                <span>Тип ремонта:</span>
+                                <span>Тип:</span>
                                 <span id="resultRepair">-</span>
                             </div>
                             <div class="calc-detail">
@@ -739,12 +737,12 @@
                         
                         <div class="calc-whatsapp">
                             <h4>Получить точный расчёт в WhatsApp</h4>
-                            <p class="calc-whatsapp-note">Нажмите кнопку ниже, чтобы отправить данные расчёта нам</p>
+                            <p class="calc-whatsapp-note">Нажмите кнопку ниже, чтобы отправить данные нам</p>
                             
-                            <a id="whatsappCalcLink" href="#" class="btn btn-primary btn-full" target="_blank">
+                            <button id="whatsappCalcBtn" class="btn btn-primary btn-full">
                                 <i class="ph-fill ph-whatsapp-logo"></i>
                                 Отправить расчёт в WhatsApp
-                            </a>
+                            </button>
                         </div>
                         
                         <button class="btn btn-secondary calc-restart">Начать заново</button>
@@ -766,7 +764,7 @@
                 <div class="contact-content">
                     <span class="section-label">Контакты</span>
                     
-                    <h2>Рассчитайте стоимость вашего ремонта прямо сейчас!</h2>
+                    <h2>Свяжитесь с нами!</h2>
                     
                     <p class="contact-desc">Оставьте заявку — мы свяжемся с вами в течение 30 минут для обсуждения проекта</p>
                     
@@ -954,7 +952,8 @@
             repairPrice: 0,
             timing: null,
             timingPrice: 1,
-            isBanya: false
+            isBanya: false,
+            whatsappMessage: ''
         };
         
         // Type labels
@@ -1096,12 +1095,6 @@
         
         // Calculate and show result
         function calculateResult() {
-            const basePrice = calcState.repairPrice * calcState.area * calcState.typePrice * calcState.timingPrice;
-            const minPrice = Math.round(basePrice * 0.9);
-            const maxPrice = Math.round(basePrice * 1.1);
-            const priceRange = minPrice.toLocaleString('ru-RU') + ' - ' + maxPrice.toLocaleString('ru-RU');
-            
-            document.getElementById('resultPrice').textContent = priceRange + ' ₽';
             document.getElementById('resultType').textContent = typeLabels[calcState.type];
             document.getElementById('resultArea').textContent = calcState.area + ' м²';
             
@@ -1113,23 +1106,25 @@
             }
             document.getElementById('resultTiming').textContent = timingLabels[calcState.timing];
             
-            // Generate WhatsApp message
+            // Store data for WhatsApp
             const typeLabel = calcState.isBanya ? banyaLabels[calcState.repairType] : repairLabels[calcState.repairType];
-            const message = `Здравствуйте! Хочу уточнить стоимость ремонта.
+            calcState.whatsappMessage = `Здравствуйте! Интересует стоимость работ.
 
-📋 Данные расчёта:
+📋 Параметры объекта:
 • Объект: ${typeLabels[calcState.type]}
 • Площадь: ${calcState.area} м²
 • Тип: ${typeLabel}
 • Срочность: ${timingLabels[calcState.timing]}
 
-💰 Предварительная стоимость: ${priceRange} ₽
-
-Жду точный расчёт!`;
-            
-            const whatsappUrl = 'https://wa.me/79148224452?text=' + encodeURIComponent(message);
-            document.getElementById('whatsappCalcLink').href = whatsappUrl;
+Жду расчёт стоимости!`;
         }
+        
+        // WhatsApp button click handler
+        document.getElementById('whatsappCalcBtn').addEventListener('click', () => {
+            const message = calcState.whatsappMessage || `Здравствуйте! Интересует стоимость работ.`;
+            const whatsappUrl = 'https://wa.me/79148224452?text=' + encodeURIComponent(message);
+            window.open(whatsappUrl, '_blank');
+        });
         
         // Restart calculator
         document.querySelector('.calc-restart').addEventListener('click', () => {
@@ -1142,6 +1137,7 @@
             calcState.timing = null;
             calcState.timingPrice = 1;
             calcState.isBanya = false;
+            calcState.whatsappMessage = '';
             
             areaRange.value = 50;
             areaValue.textContent = '50';
